@@ -6,7 +6,8 @@ node-selenium-factory
 WebDriverのテストを Node + wd-sync で書く際のinstance factoryです。
 Serverの接続先やブラウザを、SauceLabs互換の環境変数もしくはコマンドライン引数から設定して切り替えできるようになります。
 
-    WebDriverのテストの実行を、ローカルのターゲット or 共有サーバ or SauceLabs を切り替えるのにテストコードを修正したくないですよねー。
+    WebDriverのテストの実行するのに、簡単にターゲットを切り替えたいと思いませんか？
+    接続先をローカルのターゲット or 共有サーバ or SauceLabs と切り替えるのにテストコードを修正したくないですよねー。
     このfactoryを使って、接続先やターゲットブラウザ等をラップして、切り替えられるようにしましょうぜ！（●＾o＾●）
 
 # How to use
