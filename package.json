@@ -1,5 +1,5 @@
 {
-  "name": "node-selenium-factory",
+  "name": "selenium-factory",
   "version": "0.0.0",
   "description": "node-selenium configuration wrapper",
   "main": "lib/selenium-factory.js",
