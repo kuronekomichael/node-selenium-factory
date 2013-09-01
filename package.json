@@ -1,0 +1,29 @@
+{
+  "name": "node-selenium-factory",
+  "version": "0.0.0",
+  "description": "node-selenium configuration wrapper",
+  "main": "lib/selenium-factory.js",
+  "scripts": {
+    "test": "node lib/selenium-factory.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kuronekomichael/node-selenium-factory.git"
+  },
+  "keywords": [
+    "wd",
+    "wd-sync",
+    "webdriver",
+    "selenium",
+    "saucelabs"
+  ],
+  "author": "kuronekomichael",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kuronekomichael/node-selenium-factory/issues"
+  },
+  "devDependencies": {
+    "wd-sync": "~1.0.4",
+    "nopt": "~2.1.2"
+  }
+}
