@@ -4,10 +4,10 @@ node-selenium-factory
 # What's this
 
 WebDriverのテストを Node + wd-sync で書く際のinstance factoryです。
-Serverの接続先やブラウザをSauceLabs互換の環境変数、もしくはコマンドライン引数から設定して切り替えられるようにするモジュールです。
+Serverの接続先やブラウザを、SauceLabs互換の環境変数もしくはコマンドライン引数から設定して切り替えできるようになります。
 
-WebDriverのテストをLAN内のターゲットで実行するか、SauceLabsに接続して実行するかを切り替える際にコードを修正したくないですよね。
-このfactoryを使って、接続先やターゲットブラウザ等をラップして切り替えられるようにしましょうぜ。
+    WebDriverのテストの実行を、ローカルのターゲット or 共有サーバ or SauceLabs を切り替えるのにテストコードを修正したくないですよねー。
+    このfactoryを使って、接続先やターゲットブラウザ等をラップして、切り替えられるようにしましょうぜ！（●＾o＾●）
 
 # How to use
 
@@ -37,7 +37,7 @@ $ export SELENIUM_BROWSER="android"
 $ export SELENIUM_PLATFORM="ANDROID"
 $ export SELENIUM_VERSION="2.3"
 $ export SELENIUM_COOKIE="uuid=kjfa09ir3uqrkrwjeaiofuewkl;keyword=tabasa;"
-$ export SELENIUM_LOCAL_STORAGE="androidDownloadJudge=true"
+$ export SELENIUM_LOCAL_STORAGE="isTutorialCompleted=true"
 
 $ node ./test/test-code.js
 ```
@@ -87,21 +87,29 @@ var client  = factory.createRemoteWebDriver(),
 
 sync(function() {
 
+	// 環境変数 or 実行時引数から設定を読み取ってブラウザを初期化
     browser.init(factory.defaultCapabilities());
 
+	// CookieやLocalStorageを保存するため、いったんページを開く
     browser.get("http://example.com/");
 
+	// テスト実行時に常時必要なCookieを設定
     factory.defaultCookieList().forEach(function(cookie) {
         browser.setCookie(cookie);
     });
 
+	// テスト実行時に常時必要なLocalStorageを設定
     factory.defaultLocalStorageList().forEach(function(storage) {
         browser.setLocalStorage(storage);
     });
 
+	// 改めてページを開く
     browser.get("http://example.com/");
+
+	~~~テストコード~~~
 
     browser.quit();
 });
 
 ```
+
