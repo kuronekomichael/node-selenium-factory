@@ -7,8 +7,10 @@ WebDriverのテストを Node + wd-sync で書く際のinstance factoryです。
 Serverの接続先やブラウザを、SauceLabs互換の環境変数もしくはコマンドライン引数から設定して切り替えできるようになります。
 
     WebDriverのテストの実行するのに、簡単にターゲットを切り替えたいと思いませんか？
-    接続先をローカルのターゲット or 共有サーバ or SauceLabs と切り替えるのにテストコードを修正したくないですよねー。
-    このfactoryを使って、接続先やターゲットブラウザ等をラップして、切り替えられるようにしましょうぜ！（●＾o＾●）
+    接続先をローカルのターゲット or 共有サーバ or SauceLabs と切り替えるのに
+    テストコードを修正したくないですよねー。
+    このfactoryを使って、接続先やターゲットブラウザ等をラップして、
+    簡単に接続先を切り替えられるようにしましょうぜ！（●＾o＾●）
 
 # How to use
 
@@ -28,8 +30,12 @@ Serverの接続先やブラウザを、SauceLabs互換の環境変数もしく�
     * デフォルトで設定するCookie。name=valueをセミコロン(;)で区切った文字列
 * [option] **SELENIUM_LOCAL_STORAGE**
     * デフォルトで設定するlocalStorage。name=valueをセミコロン(;)で区切った文字列
+* [option] **SAUCE_USER_NAME**
+    * SouceLabsに接続する場合のユーザ名
+* [option] **SAUCE_API_KEY**
+    * SouceLabsに接続する場合のAPIキー
 
-#### example
+#### example for local target
 
 ```
 $ export SELENIUM_HOST="192.168.11.130"
@@ -43,6 +49,22 @@ $ export SELENIUM_LOCAL_STORAGE="isTutorialCompleted=true"
 $ node ./test/test-code.js
 ```
 
+#### example for SauceLabs
+
+```
+$ export SELENIUM_HOST="ondemand.saucelabs.com"
+$ export SELENIUM_PORT=80
+$ export SELENIUM_BROWSER="android"
+$ export SELENIUM_PLATFORM="Linux"
+$ export SELENIUM_VERSION="4.0"
+$ export SELENIUM_COOKIE="uuid=kjfa09ir3uqrkrwjeaiofuewkl;keyword=tabasa;"
+$ export SELENIUM_LOCAL_STORAGE="isTutorialCompleted=true"
+
+$ export SAUCE_USER_NAME="kuronekomichael"
+$ export SAUCE_API_KEY="i4otkjf3-389r-8373-flk2-t8ioejkakgja"
+
+$ node ./test/test-code.js
+```
 ----
 
 
