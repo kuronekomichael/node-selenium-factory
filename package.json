@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/kuronekomichael/node-selenium-factory/issues"
   },
-  "devDependencies": {
+  "dependencies": {
     "wd-sync": "~1.0.4",
     "nopt": "~2.1.2"
   }
